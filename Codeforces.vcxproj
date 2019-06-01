@@ -89,8 +89,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;_UNICODE;UNICODE;TASKA;TASK=A;TESTALL;TEST=1,2,3,4,5</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,6 +154,41 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Codeforces.cpp" />
+    <ClCompile Include="task_template.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TaskA\taskA.cpp" />
+    <ClCompile Include="TaskB\taskB.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TaskA\Problem.html" />
+    <None Include="TaskB\Problem.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TaskA\Results\test1.txt" />
+    <Text Include="TaskA\Results\test2.txt" />
+    <Text Include="TaskA\Results\test3.txt" />
+    <Text Include="TaskA\Results\test4.txt" />
+    <Text Include="TaskA\Results\test5.txt" />
+    <Text Include="TaskA\Tests\test1.txt" />
+    <Text Include="TaskA\Tests\test2.txt" />
+    <Text Include="TaskA\Tests\test3.txt" />
+    <Text Include="TaskA\Tests\test4.txt" />
+    <Text Include="TaskA\Tests\test5.txt" />
+    <Text Include="TaskA\Tests\test6.txt" />
+    <Text Include="TaskB\Results\test1.txt" />
+    <Text Include="TaskB\Results\test2.txt" />
+    <Text Include="TaskB\Results\test3.txt" />
+    <Text Include="TaskB\Results\test4.txt" />
+    <Text Include="TaskB\Results\test5.txt" />
+    <Text Include="TaskB\Tests\test1.txt" />
+    <Text Include="TaskB\Tests\test2.txt" />
+    <Text Include="TaskB\Tests\test3.txt" />
+    <Text Include="TaskB\Tests\test4.txt" />
+    <Text Include="TaskB\Tests\test5.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Library.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
