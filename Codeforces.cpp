@@ -51,6 +51,9 @@ int main()
 		if (correctOutput.empty()) continue;
 
 		auto success = freopen((string(".\\Task") + TaskLetter + "\\Tests\\test" + to_string(test) + ".txt").c_str(), "r", stdin);
+		cin.seekg(cin.beg);
+		int state = cin.rdstate();
+				
 		if (success == 0) {
 			SetConsoleTextAttribute(handle, 4); // red
 			cout << "Failed to open files for test #1" << endl;
