@@ -32,10 +32,18 @@ typedef unsigned long long ULL;
 
 #define REP3(i,s,n) for (int i=s;i<n;++i)
 #define REP2(i,n) for (int i=0;i<n;++i)
+/*
+* (i,n)  -> [0,n)
+* (i,s,n)-> [s,n)
+*/
 #define REP(...) DEFINE_OVERLOAD(REP, __VA_ARGS__) (__VA_ARGS__)
 
-#define REPR3(i,s,n) for (int i=s;i>=n;--i)
+#define REPR3(i,n,s) for (int i=n;i>=s;--i)
 #define REPR2(i,n) for (int i=n;i>=0;--i)
+/*
+* (i,n)  -> [n,0]
+* (i,s,n)-> [s,n]
+*/
 #define REPR(...) DEFINE_OVERLOAD(REPR, __VA_ARGS__) (__VA_ARGS__)
 
 /*
