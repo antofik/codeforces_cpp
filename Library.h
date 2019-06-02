@@ -17,7 +17,9 @@
 
 using namespace std;
 
-typedef long long LL;
+typedef long L;
+typedef unsigned long UL;
+typedef unsigned long long ULL;
 typedef unsigned long long ULL;
 
 #define VA_NUM_ARGS_IMPL(_1,_2,_3,_4,_5,N,...) N
