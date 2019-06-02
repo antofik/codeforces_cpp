@@ -26,14 +26,15 @@ typedef unsigned long long ULL;
 #define VA_NUM_ARGS_IMPL_(tuple) VA_NUM_ARGS_IMPL tuple
 #define VA_NUM_ARGS(...) VA_NUM_ARGS_IMPL_(( __VA_ARGS__, 5,4,3,2,1))
 #define CONCAT(x,y) x ## y
-#define CONCAT_(tuple) CONCAT tuple
+#define PROXY(a,b) a b
+#define CONCAT_(tuple) PROXY(CONCAT, tuple)
 #define DEFINE_OVERLOAD(NAME, ...) CONCAT_((NAME, VA_NUM_ARGS(__VA_ARGS__)))
 
 #define REP3(i,s,n) for (int i=s;i<n;++i)
 #define REP2(i,n) for (int i=0;i<n;++i)
 #define REP(...) DEFINE_OVERLOAD(REP, __VA_ARGS__) (__VA_ARGS__)
 
-#define REPR3(i,s,n) for (int i=n;i>=s;--i)
+#define REPR3(i,s,n) for (int i=s;i>=n;--i)
 #define REPR2(i,n) for (int i=n;i>=0;--i)
 #define REPR(...) DEFINE_OVERLOAD(REPR, __VA_ARGS__) (__VA_ARGS__)
 
