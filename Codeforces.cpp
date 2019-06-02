@@ -50,24 +50,29 @@ int main()
 		string correctOutput = rtrim(buffer.str());
 		if (correctOutput.empty()) continue;
 
-		auto success = freopen((string(".\\Task") + TaskLetter + "\\Tests\\test" + to_string(test) + ".txt").c_str(), "r", stdin);
-		if (success == 0) {
+		FILE* original_stdout = freopen((string(".\\Task") + TaskLetter + "\\Tests\\test" + to_string(test) + ".txt").c_str(), "r", stdin);
+		if (original_stdout == 0) {
 			SetConsoleTextAttribute(handle, 4); // red
 			cout << "Failed to open files for test #1" << endl;
 			continue;
 		}
+		cin.seekg(cin.beg);
 
 		SetConsoleTextAttribute(handle, 15);
 		cout << endl << "-------------------- Test " << test << "----------------" << endl << endl;
 
-		stringbuf new_buffer;
-		streambuf* old_buffer = cout.rdbuf(&new_buffer);
+		freopen("output", "w", stdout);
 
 		task();
 
-		cout.rdbuf(old_buffer);
+		fclose(stdout);
+		freopen("con", "w", stdout);
+		
+		std::ifstream outputFile("output");
+		std::stringstream outBuffer;
+		outBuffer << outputFile.rdbuf();
+		string programOutput = rtrim(outBuffer.str());
 
-		string programOutput = rtrim(new_buffer.str());
 		if (correctOutput == programOutput) {
 			// correct answer
 			SetConsoleTextAttribute(handle, 7); // dim white
