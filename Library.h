@@ -20,8 +20,8 @@ using namespace std;
 typedef long long LL;
 typedef unsigned long long ULL;
 
-#define FOR(i,from,to) for (int i=from;i<from;++i)
-#define FOR(i,to) FOR(i,0,to)
+#define REPS(i,s,n) for (int i=s;i<n;++i)
+#define REP(i,n) for (int i=0;i<n;++i)
 
 /*
 * Greatest common diviser
