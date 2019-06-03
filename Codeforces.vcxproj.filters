@@ -21,10 +21,194 @@
     <ClCompile Include="task_template.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TaskA\TaskA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskB\TaskB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskC\TaskC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskD\TaskD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskE\TaskE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TaskA\Problem.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="TaskB\Problem.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="TaskC\Problem.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="TaskD\Problem.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="TaskE\Problem.html">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TaskA\Tests\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Results\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Tests\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Results\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Tests\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Results\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Tests\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Results\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Tests\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskA\Results\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Tests\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Results\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Tests\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Results\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Tests\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Results\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Tests\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Results\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Tests\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskB\Results\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Tests\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Results\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Tests\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Results\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Tests\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Results\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Tests\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Results\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Tests\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskC\Results\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Tests\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Results\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Tests\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Results\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Tests\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Results\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Tests\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Results\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Tests\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskD\Results\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Tests\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Results\test1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Tests\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Results\test2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Tests\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Results\test3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Tests\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Results\test4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Tests\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TaskE\Results\test5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
