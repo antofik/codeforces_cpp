@@ -30,21 +30,21 @@ typedef unsigned long long ULL;
 #define CONCAT_(tuple) PROXY(CONCAT, tuple)
 #define DEFINE_OVERLOAD(NAME, ...) CONCAT_((NAME, VA_NUM_ARGS(__VA_ARGS__)))
 
-#define REP3(i,s,n) for (int i=s;i<n;++i)
-#define REP2(i,n) for (int i=0;i<n;++i)
+#define REP_IMPL_3(i,s,n) for (int i=s;i<=n;++i)
+#define REP_IMPL_2(i,n) for (int i=1;i<=n;++i)
 /*
-* (i,n)  -> [0,n)
-* (i,s,n)-> [s,n)
+* (i,n)  -> [1,n]
+* (i,s,n)-> [s,n]
 */
-#define REP(...) DEFINE_OVERLOAD(REP, __VA_ARGS__) (__VA_ARGS__)
+#define REP(...) DEFINE_OVERLOAD(REP_IMPL_, __VA_ARGS__) (__VA_ARGS__)
 
-#define REPR3(i,n,s) for (int i=n;i>=s;--i)
-#define REPR2(i,n) for (int i=n;i>=0;--i)
+#define REPR_IMPL_3(i,n,s) for (int i=n;i>=s;--i)
+#define REPR_IMPL_2(i,n) for (int i=n;i>=1;--i)
 /*
 * (i,n)  -> [n,0]
 * (i,s,n)-> [s,n]
 */
-#define REPR(...) DEFINE_OVERLOAD(REPR, __VA_ARGS__) (__VA_ARGS__)
+#define REPR(...) DEFINE_OVERLOAD(REPR_IMPL_, __VA_ARGS__) (__VA_ARGS__)
 
 /*
 * Greatest common diviser
