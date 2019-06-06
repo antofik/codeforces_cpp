@@ -2,7 +2,12 @@
 
 void task()
 {
-	int x, y;
-	cin >> x >> y;
-	cout << "YES " << x << " " << y << endl;
+	ULL n;
+	read(n);
+
+	vector<int> a(n + 1);
+	read(n, a);
+
+	int ans = 0;
+	write(ans);
 }
