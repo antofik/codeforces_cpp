@@ -21,7 +21,7 @@ using namespace std;
 
 typedef long L;
 typedef unsigned long UL;
-typedef unsigned long long ULL;
+typedef long long LL;
 typedef unsigned long long ULL;
 
 // ------------------- macros -----------------------------
@@ -93,44 +93,54 @@ void read(int n, vector<T>& a) {
 	REP(i, n) read(a[i]);
 }
 
+template<typename T>
+void read(int n, vector<T>& a, vector<T>& b) {
+	REP(i, n) read(a[i], b[i]);
+}
+
+template<typename T>
+void read(int n, vector<T>& a, vector<T>& b, vector<T>& c) {
+	REP(i, n) read(a[i], b[i], c[i]);
+}
+
 // --------------------- write functions ---------------------
 
 
-void write(int& x1) { printf("%d", x1); }
-void write(int& x1, int& x2) { printf("%d %d", x1, x2); }
-void write(int& x1, int& x2, int& x3) { printf("%d %d %d", x1, x2, x3); }
-void write(int& x1, int& x2, int& x3, int& x4) { printf("%d %d %d %d", x1, x2, x3, x4); }
-void write(int& x1, int& x2, int& x3, int& x4, int& x5) { printf("%d %d %d %d %d", x1, x2, x3, x4, x5); }
+void write(int& x1) { printf("%d\n", x1); }
+void write(int& x1, int& x2) { printf("%d %d\n", x1, x2); }
+void write(int& x1, int& x2, int& x3) { printf("%d %d %d\n", x1, x2, x3); }
+void write(int& x1, int& x2, int& x3, int& x4) { printf("%d %d %d %d\n", x1, x2, x3, x4); }
+void write(int& x1, int& x2, int& x3, int& x4, int& x5) { printf("%d %d %d %d %d\n", x1, x2, x3, x4, x5); }
 
-void write(long& x1) { printf("%ld", x1); }
-void write(long& x1, long& x2) { printf("%ld %ld", x1, x2); }
-void write(long& x1, long& x2, long& x3) { printf("%ld %ld %ld", x1, x2, x3); }
-void write(long& x1, long& x2, long& x3, long& x4) { printf("%ld %ld %ld %ld", x1, x2, x3, x4); }
-void write(long& x1, long& x2, long& x3, long& x4, long& x5) { printf("%ld %ld %ld %ld %ld", x1, x2, x3, x4, x5); }
+void write(long& x1) { printf("%ld\n", x1); }
+void write(long& x1, long& x2) { printf("%ld %ld\n", x1, x2); }
+void write(long& x1, long& x2, long& x3) { printf("%ld %ld %ld\n", x1, x2, x3); }
+void write(long& x1, long& x2, long& x3, long& x4) { printf("%ld %ld %ld %ld\n", x1, x2, x3, x4); }
+void write(long& x1, long& x2, long& x3, long& x4, long& x5) { printf("%ld %ld %ld %ld %ld\n", x1, x2, x3, x4, x5); }
 
-void write(long long& x1) { printf("%lld", x1); }
-void write(long long& x1, long long& x2) { printf("%lld %lld", x1, x2); }
-void write(long long& x1, long long& x2, long long& x3) { printf("%lld %lld %lld", x1, x2, x3); }
-void write(long long& x1, long long& x2, long long& x3, long long& x4) { printf("%lld %lld %lld %lld", x1, x2, x3, x4); }
-void write(long long& x1, long long& x2, long long& x3, long long& x4, long long& x5) { printf("%lld %lld %lld %lld %lld", x1, x2, x3, x4, x5); }
+void write(long long& x1) { printf("%lld\n", x1); }
+void write(long long& x1, long long& x2) { printf("%lld %lld\n", x1, x2); }
+void write(long long& x1, long long& x2, long long& x3) { printf("%lld %lld %lld\n", x1, x2, x3); }
+void write(long long& x1, long long& x2, long long& x3, long long& x4) { printf("%lld %lld %lld %lld\n", x1, x2, x3, x4); }
+void write(long long& x1, long long& x2, long long& x3, long long& x4, long long& x5) { printf("%lld %lld %lld %lld %lld\n", x1, x2, x3, x4, x5); }
 
-void write(unsigned int& x1) { printf("%u", x1); }
-void write(unsigned int& x1, unsigned int& x2) { printf("%u %u", x1, x2); }
-void write(unsigned int& x1, unsigned int& x2, unsigned int& x3) { printf("%u %u %u", x1, x2, x3); }
-void write(unsigned int& x1, unsigned int& x2, unsigned int& x3, unsigned int& x4) { printf("%u %u %u %u", x1, x2, x3, x4); }
-void write(unsigned int& x1, unsigned int& x2, unsigned int& x3, unsigned int& x4, unsigned int& x5) { printf("%u %u %u %u %u", x1, x2, x3, x4, x5); }
+void write(unsigned int& x1) { printf("%u\n", x1); }
+void write(unsigned int& x1, unsigned int& x2) { printf("%u %u\n", x1, x2); }
+void write(unsigned int& x1, unsigned int& x2, unsigned int& x3) { printf("%u %u %u\n", x1, x2, x3); }
+void write(unsigned int& x1, unsigned int& x2, unsigned int& x3, unsigned int& x4) { printf("%u %u %u %u\n", x1, x2, x3, x4); }
+void write(unsigned int& x1, unsigned int& x2, unsigned int& x3, unsigned int& x4, unsigned int& x5) { printf("%u %u %u %u %u\n", x1, x2, x3, x4, x5); }
 
-void write(unsigned long& x1) { printf("%lu", x1); }
-void write(unsigned long& x1, unsigned long& x2) { printf("%lu %lu", x1, x2); }
-void write(unsigned long& x1, unsigned long& x2, unsigned long& x3) { printf("%lu %lu %lu", x1, x2, x3); }
-void write(unsigned long& x1, unsigned long& x2, unsigned long& x3, unsigned long& x4) { printf("%lu %lu %lu %lu", x1, x2, x3, x4); }
-void write(unsigned long& x1, unsigned long& x2, unsigned long& x3, unsigned long& x4, unsigned long& x5) { printf("%lu %lu %lu %lu %lu", x1, x2, x3, x4, x5); }
+void write(unsigned long& x1) { printf("%lu\n", x1); }
+void write(unsigned long& x1, unsigned long& x2) { printf("%lu %lu\n", x1, x2); }
+void write(unsigned long& x1, unsigned long& x2, unsigned long& x3) { printf("%lu %lu %lu\n", x1, x2, x3); }
+void write(unsigned long& x1, unsigned long& x2, unsigned long& x3, unsigned long& x4) { printf("%lu %lu %lu %lu\n", x1, x2, x3, x4); }
+void write(unsigned long& x1, unsigned long& x2, unsigned long& x3, unsigned long& x4, unsigned long& x5) { printf("%lu %lu %lu %lu %lu\n", x1, x2, x3, x4, x5); }
 
-void write(unsigned long long& x1) { printf("%llu", x1); }
-void write(unsigned long long& x1, unsigned long long& x2) { printf("%llu %llu", x1, x2); }
-void write(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3) { printf("%llu %llu %llu", x1, x2, x3); }
-void write(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3, unsigned long long& x4) { printf("%llu %llu %llu %llu", x1, x2, x3, x4); }
-void write(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3, unsigned long long& x4, unsigned long long& x5) { printf("%llu %llu %llu %llu %llu", x1, x2, x3, x4, x5); }
+void write(unsigned long long& x1) { printf("%llu\n", x1); }
+void write(unsigned long long& x1, unsigned long long& x2) { printf("%llu %llu\n", x1, x2); }
+void write(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3) { printf("%llu %llu %llu\n", x1, x2, x3); }
+void write(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3, unsigned long long& x4) { printf("%llu %llu %llu %llu\n", x1, x2, x3, x4); }
+void write(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3, unsigned long long& x4, unsigned long long& x5) { printf("%llu %llu %llu %llu %llu\n", x1, x2, x3, x4, x5); }
 
 template<typename T>
 void write(int n, vector<T>& a) {
@@ -138,6 +148,16 @@ void write(int n, vector<T>& a) {
 		write(a[i]);
 		printf(" ");
 	}
+	printf("\n");
+}
+
+void write(const char* s) {
+	printf(s);
+	printf("\n");
+}
+
+void write(std::string s) {
+	printf(s.c_str());
 	printf("\n");
 }
 
