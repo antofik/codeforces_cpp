@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 #include <streambuf>
 #include <sstream>
@@ -50,8 +52,8 @@ typedef unsigned long long ULL;
 */
 #define RER(...) DEFINE_OVERLOAD(RER_IMPL_, __VA_ARGS__) (__VA_ARGS__)
 
-#define REP0_IMPL_3(i,s,n) for (int i=s;i<=n-1;++i)
-#define REP0_IMPL_2(i,n) for (int i=0;i<=n-1;++i)
+#define REP0_IMPL_3(i,s,n) for (int i=s;i<n;++i)
+#define REP0_IMPL_2(i,n) for (int i=0;i<n;++i)
 /*
 * (i,n)  -> [n-1,0]
 * (i,s,n)-> [n-1,s]
@@ -68,41 +70,54 @@ typedef unsigned long long ULL;
 
 // --------------------- read functions ---------------------
 
-void read(int& x1) { scanf("%d", &x1); }
-void read(int& x1, int& x2) { scanf("%d %d", &x1, &x2); }
-void read(int& x1, int& x2, int& x3) { scanf("%d %d %d", &x1, &x2, &x3); }
-void read(int& x1, int& x2, int& x3, int& x4) { scanf("%d %d %d %d", &x1, &x2, &x3, &x4); }
-void read(int& x1, int& x2, int& x3, int& x4, int& x5) { scanf("%d %d %d %d %d", &x1, &x2, &x3, &x4, &x5); }
+long long read_long() {
+	long long result = 0;
+	char ch = ' ';
+	while (ch < 33) ch = _getchar_nolock();
+	bool positive = ch != '-';
+	while (ch >= 33) {
+		if (ch == '-') continue;
+		result = result * 10 + (ch - '0');
+		ch = _getchar_nolock();
+	}
+	return result;
+}
 
-void read(long& x1) { scanf("%ld", &x1); }
-void read(long& x1, long& x2) { scanf("%ld %ld", &x1, &x2); }
-void read(long& x1, long& x2, long& x3) { scanf("%ld %ld %ld", &x1, &x2, &x3); }
-void read(long& x1, long& x2, long& x3, long& x4) { scanf("%ld %ld %ld %ld", &x1, &x2, &x3, &x4); }
-void read(long& x1, long& x2, long& x3, long& x4, long& x5) { scanf("%ld %ld %ld %ld %ld", &x1, &x2, &x3, &x4, &x5); }
+void read(int& x1) { x1 = read_long(); }
+void read(int& x1, int& x2) { x1 = read_long(); x2 = read_long(); }
+void read(int& x1, int& x2, int& x3) { x1 = read_long(); x2 = read_long(); x3 = read_long(); }
+void read(int& x1, int& x2, int& x3, int& x4) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); }
+void read(int& x1, int& x2, int& x3, int& x4, int& x5) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); x5 = read_long(); }
 
-void read(long long& x1) { scanf("%lld", &x1); }
-void read(long long& x1, long long& x2) { scanf("%lld %lld", &x1, &x2); }
-void read(long long& x1, long long& x2, long long& x3) { scanf("%lld %lld %lld", &x1, &x2, &x3); }
-void read(long long& x1, long long& x2, long long& x3, long long& x4) { scanf("%lld %lld %lld %lld", &x1, &x2, &x3, &x4); }
-void read(long long& x1, long long& x2, long long& x3, long long& x4, long long& x5) { scanf("%lld %lld %lld %lld %lld", &x1, &x2, &x3, &x4, &x5); }
+void read(long& x1) { x1 = read_long(); }
+void read(long& x1, long& x2) { x1 = read_long(); x2 = read_long(); }
+void read(long& x1, long& x2, long& x3) { x1 = read_long(); x2 = read_long(); x3 = read_long(); }
+void read(long& x1, long& x2, long& x3, long& x4) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); }
+void read(long& x1, long& x2, long& x3, long& x4, long& x5) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); x5 = read_long(); }
 
-void read(unsigned int& x1) { scanf("%u", &x1); }
-void read(unsigned int& x1, unsigned int& x2) { scanf("%u %u", &x1, &x2); }
-void read(unsigned int& x1, unsigned int& x2, unsigned int& x3) { scanf("%u %u %u", &x1, &x2, &x3); }
-void read(unsigned int& x1, unsigned int& x2, unsigned int& x3, unsigned int& x4) { scanf("%u %u %u %u", &x1, &x2, &x3, &x4); }
-void read(unsigned int& x1, unsigned int& x2, unsigned int& x3, unsigned int& x4, unsigned int& x5) { scanf("%u %u %u %u %u", &x1, &x2, &x3, &x4, &x5); }
+void read(long long& x1) { x1 = read_long(); }
+void read(long long& x1, long long& x2) { x1 = read_long(); x2 = read_long(); }
+void read(long long& x1, long long& x2, long long& x3) { x1 = read_long(); x2 = read_long(); x3 = read_long(); }
+void read(long long& x1, long long& x2, long long& x3, long long& x4) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); }
+void read(long long& x1, long long& x2, long long& x3, long long& x4, long long& x5) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); x5 = read_long(); }
 
-void read(unsigned long& x1) { scanf("%lu", &x1); }
-void read(unsigned long& x1, unsigned long& x2) { scanf("%lu %lu", &x1, &x2); }
-void read(unsigned long& x1, unsigned long& x2, unsigned long& x3) { scanf("%lu %lu %lu", &x1, &x2, &x3); }
-void read(unsigned long& x1, unsigned long& x2, unsigned long& x3, unsigned long& x4) { scanf("%lu %lu %lu %lu", &x1, &x2, &x3, &x4); }
-void read(unsigned long& x1, unsigned long& x2, unsigned long& x3, unsigned long& x4, unsigned long& x5) { scanf("%lu %lu %lu %lu %lu", &x1, &x2, &x3, &x4, &x5); }
+void read(unsigned int& x1) { x1 = read_long(); }
+void read(unsigned int& x1, unsigned int& x2) { x1 = read_long(); x2 = read_long(); }
+void read(unsigned int& x1, unsigned int& x2, unsigned int& x3) { x1 = read_long(); x2 = read_long(); x3 = read_long(); }
+void read(unsigned int& x1, unsigned int& x2, unsigned int& x3, unsigned int& x4) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); }
+void read(unsigned int& x1, unsigned int& x2, unsigned int& x3, unsigned int& x4, unsigned int& x5) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); x5 = read_long(); }
 
-void read(unsigned long long& x1) { scanf("%llu", &x1); }
-void read(unsigned long long& x1, unsigned long long& x2) { scanf("%llu %llu", &x1, &x2); }
-void read(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3) { scanf("%llu %llu %llu", &x1, &x2, &x3); }
-void read(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3, unsigned long long& x4) { scanf("%llu %llu %llu %llu", &x1, &x2, &x3, &x4); }
-void read(unsigned long long& x1, unsigned long long& x2, unsigned long long& x3, unsigned long long& x4, unsigned long long& x5) { scanf("%llu %llu %llu %llu %llu", &x1, &x2, &x3, &x4, &x5); }
+void read(unsigned long& x1) { x1 = read_long(); }
+void read(unsigned long& x1, unsigned long& x2) { x1 = read_long(); x2 = read_long(); }
+void read(unsigned long& x1, unsigned long& x2, unsigned long& x3) { x1 = read_long(); x2 = read_long(); x3 = read_long(); }
+void read(unsigned long& x1, unsigned long& x2, unsigned long& x3, unsigned long& x4) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); }
+void read(unsigned long& x1, unsigned long& x2, unsigned long& x3, unsigned long& x4, unsigned long& x5) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); x5 = read_long(); }
+
+void read(long unsigned long& x1) { x1 = read_long(); }
+void read(long unsigned long& x1, long unsigned long& x2) { x1 = read_long(); x2 = read_long(); }
+void read(long unsigned long& x1, long unsigned long& x2, long unsigned long& x3) { x1 = read_long(); x2 = read_long(); x3 = read_long(); }
+void read(long unsigned long& x1, long unsigned long& x2, long unsigned long& x3, long unsigned long& x4) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); }
+void read(long unsigned long& x1, long unsigned long& x2, long unsigned long& x3, long unsigned long& x4, long unsigned long& x5) { x1 = read_long(); x2 = read_long(); x3 = read_long(); x4 = read_long(); x5 = read_long(); }
 
 template<typename T>
 void read(int n, vector<T>& a) {
@@ -232,22 +247,174 @@ auto find_kmp = [](const string& T, const string& P, vector<int>& kmp) {
 
 // ------------------------------------ Matrix ----------------------------------
 
+
+template<typename T>
+class Matrix {
+public:
+	static T MOD;
+
+	Matrix(int rows, int cols)
+	{
+		R = rows;
+		C = cols;
+		data = vector<T>(R * C);
+	}
+
+	inline T& operator()(int row, int col) {
+		return data[row * C + col];
+	}
+
+	inline T operator()(int row, int col) const {
+		return data[row * C + col];
+	}
+
+	Matrix<T> copy() const {
+		Matrix<T> result(R, C);
+		result.data = data;
+		return result;
+	}
+
+	Matrix<T> operator+(Matrix<T> const& rhs) const {
+		Matrix<T> m(R, C);
+		REP0(i, R * C) m.data[i] = (data[i] + rhs.data[i]) % MOD;
+		return m;
+	}
+
+	Matrix<T> operator-(Matrix<T> const& rhs) const {
+		Matrix<T> m(R, C);
+		REP0(i, R * C) m.data[i] = (data[i] - rhs.data[i]) % MOD;
+		return m;
+	}
+
+	Matrix<T> operator-() const {
+		Matrix<T> m(R, C);
+		REP0(i, R * C) m.data[i] = -data[i];
+		return m;
+	}
+
+	template<typename TT>
+	Matrix<T> operator*(TT t) const {
+		Matrix<T> m(R, C);
+		REP0(i, R * C) m.data[i] = (data[i] * t) % MOD;
+		return m;
+	}
+
+	template<typename TT>
+	Matrix<T> operator/(TT t) const {
+		Matrix<T> m(R, C);
+		REP0(i, R * C) m.data[i] = (data[i] / t) % MOD;
+		return m;
+	}
+
+	Matrix<T> operator*(Matrix<T> const& rhs) const {
+		Matrix<T> m(R, C);
+		REP0(r, R) {
+			REP0(d, rhs.C) {
+				T sum = 0;
+				REP0(c, C) sum = (sum + data[r * C + c] * 1LL * rhs.data[c * rhs.C + d]) % MOD;
+				m.data[r * C + d] = sum;
+			}
+		}
+		return m;
+	}
+	/*
+		Matrix<T>& operator=(const vector<vector<T>>& v) {
+			REP0(r, R) {
+				REP0(c, C) {
+					(*this)(r, c) = v[r][c] % MOD;
+				}
+			}
+			return *this;
+		}
+	*/
+	static Matrix<T> zeros(int R, int C) {
+		Matrix<T> result(R, C);
+		return result;
+	}
+
+	static Matrix<T> ones(int R, int C) {
+		return diagonal(R, C, 1);
+	}
+
+	static Matrix<T> diagonal(int R, int C, int value) {
+		Matrix<T> result = Matrix<T>::zeros(R, C);
+		REP0(r, min(R, C)) result(r, r) = value;
+		return result;
+	}
+
+	Matrix<T> transpose() {
+		Matrix<T, C, R> result;
+		REP0(r, R) {
+			REP0(c, C) {
+				result(c, r) = (*this)[r][c];
+			}
+		}
+		return result;
+	}
+
+	Matrix<T> pow(unsigned int l) const {
+		if (R != C)
+			throw std::exception("Only squared matrixes could be powered");
+		Matrix<T> m = *this;
+		Matrix<T> result = Matrix<T>::ones(R, C);
+		unsigned int n = 1;
+		while (l != 0) {
+			unsigned int i = l & ~(l - 1);
+			l -= i;
+			while (n < i) {
+				m = m * m;
+				n <<= 1;
+			}
+			result = result * m;
+		}
+		return result;
+
+	}
+
+	std::string asStrig() const {
+		std::stringstream stream;
+		REP0(r, R) {
+			REP0(c, C) {
+				stream << data[r * C + c];
+				if (c < C - 1)
+					stream << "\t";
+			}
+			if (r < R - 1)
+				stream << "\n";
+		}
+
+		return stream.str();
+	}
+
+private:
+	Matrix() {}
+	int R, C;
+	vector<T> data;
+};
+
+template<typename T>
+T Matrix<T>::MOD = (std::numeric_limits<T>::max)();
+
+
+/*
+
+
 template<typename T>
 struct ModuleRing {
-	static T MOD;
 };
 
 template<typename T>
 T ModuleRing<T>::MOD = (std::numeric_limits<T>::max)();
 
+
 template<typename T, int R, int C>
-class Matrix: ModuleRing<T> {
+class Matrix : ModuleRing<T> {
 	typedef T data_type[R][C];
-	
+
 public:
 	Matrix()
 #ifdef _DEBUG
-		:_data(0) 
+		:_data(0)
 #endif
 	{
 		data = std::shared_ptr<T[]>(new T[R * C]);
@@ -315,7 +482,7 @@ public:
 		return m;
 	}
 
-	Matrix<T, R, C>& operator=(const vector<vector<T>> &v) {
+	Matrix<T, R, C>& operator=(const vector<vector<T>>& v) {
 		REP0(r, R) {
 			REP0(c, C) {
 				(*this)(r, c) = v[r][c] % ModuleRing<T>::MOD;
@@ -326,7 +493,7 @@ public:
 
 	static Matrix<T, R, C> zeros() {
 		Matrix<T, R, C> result;
-		memset(result.data.get(), 0, R*C*sizeof(T));
+		memset(result.data.get(), 0, R * C * sizeof(T));
 		return result;
 	}
 
@@ -351,7 +518,7 @@ public:
 	}
 
 	Matrix<T, R, C> pow(unsigned int l) const {
-		if (R != C) 
+		if (R != C)
 			throw std::exception("Only squared matrixes could be powered");
 		static_assert(R == C, "Not square matrix");
 		Matrix<T, R, C> m = *this;
@@ -378,10 +545,10 @@ public:
 				if (c < C - 1)
 					stream << "\t";
 			}
-			if (r < R-1)
+			if (r < R - 1)
 				stream << "\n";
 		}
-			
+
 		return stream.str();
 	}
 
@@ -391,6 +558,4 @@ private:
 	data_type* _data;
 #endif
 };
-
-//template<typename T, int R, int C>
-//T Matrix<T, R, C>::MOD = 1000000007;
+*/
