@@ -50,6 +50,22 @@ typedef unsigned long long ULL;
 */
 #define RER(...) DEFINE_OVERLOAD(RER_IMPL_, __VA_ARGS__) (__VA_ARGS__)
 
+#define REP0_IMPL_3(i,s,n) for (int i=s;i<=n-1;++i)
+#define REP0_IMPL_2(i,n) for (int i=0;i<=n-1;++i)
+/*
+* (i,n)  -> [n-1,0]
+* (i,s,n)-> [n-1,s]
+*/
+#define REP0(...) DEFINE_OVERLOAD(REP0_IMPL_, __VA_ARGS__) (__VA_ARGS__)
+
+#define RER0_IMPL_3(i,n,s) for (int i=n-1;i>=s;--i)
+#define RER0_IMPL_2(i,n) for (int i=n-1;i>=0;--i)
+/*
+* (i,n)  -> [n-1,0]
+* (i,s,n)-> [n-1,s]
+*/
+#define RER0(...) DEFINE_OVERLOAD(RER0_IMPL_, __VA_ARGS__) (__VA_ARGS__)
+
 // --------------------- read functions ---------------------
 
 void read(int& x1) { scanf("%d", &x1); }
@@ -213,3 +229,168 @@ auto find_kmp = [](const string& T, const string& P, vector<int>& kmp) {
 	}
 	return -1;
 };
+
+// ------------------------------------ Matrix ----------------------------------
+
+template<typename T>
+struct ModuleRing {
+	static T MOD;
+};
+
+template<typename T>
+T ModuleRing<T>::MOD = (std::numeric_limits<T>::max)();
+
+template<typename T, int R, int C>
+class Matrix: ModuleRing<T> {
+	typedef T data_type[R][C];
+	
+public:
+	Matrix()
+#ifdef _DEBUG
+		:_data(0) 
+#endif
+	{
+		data = std::shared_ptr<T[]>(new T[R * C]);
+#ifdef _DEBUG
+		_data = reinterpret_cast<data_type*>(data.get());
+#endif
+	}
+
+	inline T& operator()(int row, int col) {
+		return data[row * C + col];
+	}
+
+	inline T operator()(int row, int col) const {
+		return data[row * C + col];
+	}
+
+	Matrix<T, R, C> copy() const {
+		Matrix<T, R, C> result;
+		memcpy(result.data.get(), data.get(), R * C);
+		return result;
+	}
+
+	Matrix<T, R, C> operator+(Matrix<T, R, C> const& rhs) const {
+		Matrix<T, R, C> m;
+		REP0(i, R * C) m.data[i] = (data[i] + rhs.data[i]) % ModuleRing<T>::MOD;
+		return m;
+	}
+
+	Matrix<T, R, C> operator-(Matrix<T, R, C> const& rhs) const {
+		Matrix<T, R, C> m;
+		REP0(i, R * C) m.data[i] = (data[i] - rhs.data[i]) % ModuleRing<T>::MOD;
+		return m;
+	}
+
+	Matrix<T, R, C> operator-() const {
+		Matrix<T, R, C> m;
+		REP0(i, R * C) m.data[i] = -data[i];
+		return m;
+	}
+
+	template<typename TT>
+	Matrix<T, R, C> operator*(TT t) const {
+		Matrix<T, R, C> m;
+		REP0(i, R * C) m.data[i] = static_cast<T>(data[i] * t) % ModuleRing<T>::MOD;
+		return m;
+	}
+
+	template<typename TT>
+	Matrix<T, R, C> operator/(TT t) const {
+		Matrix<T, R, C> m;
+		REP0(i, R * C) m.data[i] = (data[i] / t) % ModuleRing<T>::MOD;
+		return m;
+	}
+
+	template<int D>
+	Matrix<T, R, D> operator*(Matrix<T, C, D> const& rhs) const {
+		Matrix<T, R, D> m;
+		REP0(r, R) {
+			REP0(d, D) {
+				T sum = 0;
+				REP0(c, C) sum = (sum + (*this)(r, c) * rhs(c, d)) % ModuleRing<T>::MOD;
+				m(r, d) = sum;
+			}
+		}
+		return m;
+	}
+
+	Matrix<T, R, C>& operator=(const vector<vector<T>> &v) {
+		REP0(r, R) {
+			REP0(c, C) {
+				(*this)(r, c) = v[r][c] % ModuleRing<T>::MOD;
+			}
+		}
+		return *this;
+	}
+
+	static Matrix<T, R, C> zeros() {
+		Matrix<T, R, C> result;
+		memset(result.data.get(), 0, R*C*sizeof(T));
+		return result;
+	}
+
+	static Matrix<T, R, C> ones() {
+		return diagonal(1);
+	}
+
+	static Matrix<T, R, C> diagonal(int value) {
+		Matrix<T, R, C> result = Matrix<T, R, C>::zeros();
+		REP0(r, min(R, C)) result(r, r) = value;
+		return result;
+	}
+
+	Matrix<T, R, C> transpose() {
+		Matrix<T, C, R> result;
+		REP0(r, R) {
+			REP0(c, C) {
+				result(c, r) = (*this)[r][c];
+			}
+		}
+		return result;
+	}
+
+	Matrix<T, R, C> pow(unsigned int l) const {
+		if (R != C) 
+			throw std::exception("Only squared matrixes could be powered");
+		static_assert(R == C, "Not square matrix");
+		Matrix<T, R, C> m = *this;
+		Matrix<T, R, C> result = Matrix<T, R, C>::ones();
+		unsigned int n = 1;
+		while (l != 0) {
+			unsigned int i = l & ~(l - 1);
+			l -= i;
+			while (n < i) {
+				m = m * m;
+				n <<= 1;
+			}
+			result = result * m;
+		}
+		return result;
+
+	}
+
+	std::string asStrig() const {
+		std::stringstream stream;
+		REP0(r, R) {
+			REP0(c, C) {
+				stream << data[r * C + c];
+				if (c < C - 1)
+					stream << "\t";
+			}
+			if (r < R-1)
+				stream << "\n";
+		}
+			
+		return stream.str();
+	}
+
+private:
+	shared_ptr<T[]> data;
+#ifdef _DEBUG
+	data_type* _data;
+#endif
+};
+
+//template<typename T, int R, int C>
+//T Matrix<T, R, C>::MOD = 1000000007;
