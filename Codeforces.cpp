@@ -23,8 +23,26 @@ static inline string rtrim(string s) {
 	return s;
 }
 
+int randint(int a, int b) {
+	int i = a + rand() * 1ULL * (b - a) / RAND_MAX;
+	return i;
+}
+
+void generate_test() {
+	FILE* f = fopen("TaskE\\Tests\\test4.txt", "w");
+	fprintf(f, "300000 300000\n");
+	for (int i = 1; i <= 300000; i++) {
+		int u = 1; 
+		int v = randint(1, 300000);
+		if (rand() % 2) swap(u, v);
+		fprintf(f, "%d %d %d\n", u, v, randint(1, 100000));
+	}
+	fclose(f);
+}
+
 int main()
 {
+	//generate_test();
 	const string TaskLetter = stringify(TASK);
 
 	HANDLE  handle;
