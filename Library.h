@@ -137,7 +137,7 @@ void read(int n, vector<T>& a, vector<T>& b, vector<T>& c) {
 // --------------------- write functions ---------------------
 
 
-void write(int& x1) { printf("%d\n", x1); }
+void write(int x1) { printf("%d\n", x1); }
 void write(int& x1, int& x2) { printf("%d %d\n", x1, x2); }
 void write(int& x1, int& x2, int& x3) { printf("%d %d %d\n", x1, x2, x3); }
 void write(int& x1, int& x2, int& x3, int& x4) { printf("%d %d %d %d\n", x1, x2, x3, x4); }
